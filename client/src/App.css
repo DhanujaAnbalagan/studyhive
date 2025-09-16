@@ -1,38 +1,266 @@
-.App {
-  text-align: center;
+/* Import a modern font like Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Global Reset and Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f4f5f7;
+  color: #333;
+  line-height: 1.6;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+/* 1. Main Application Layout Container */
+.full-page-container {
+  display: flex;
   min-height: 100vh;
+  width: 100%;
+}
+
+/* 2. Sidebar Styles */
+.sidebar {
+  width: 250px;
+  background-color: #fff;
+  border-right: 1px solid #e0e0e0;
+  padding: 20px;
   display: flex;
   flex-direction: column;
+}
+
+.sidebar .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2684ff;
+  margin-bottom: 30px;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+}
+
+.sidebar-nav li {
+  margin-bottom: 8px;
+}
+
+.sidebar-nav li a {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 12px 15px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  text-decoration: none;
+  color: #666;
 }
 
-.App-link {
-  color: #61dafb;
+.sidebar-nav li a:hover {
+  background-color: #f4f5f7;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.sidebar-nav li a svg {
+  margin-right: 12px;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* 3. Main Content Area (contains Navbar and Dashboard) */
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column; /* Stacks children vertically */
+  overflow-y: auto;
+}
+
+/* 4. Top Navbar (inside main-content) */
+.top-navbar {
+  background-color: #fff;
+  padding: 20px 30px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.top-navbar h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Dashboard Page Styles */
+.dashboard-page {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 30px; /* Add padding here so content isn't flush with the edges */
+}
+
+/* Study Progress Cards Section */
+.study-progress {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.dashboard-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-card .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.dashboard-card .card-title {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.dashboard-card .card-content .value {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.dashboard-card .card-content .description {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* Quick Start & Upcoming Assignments Section */
+.dashboard-widgets {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 20px;
+}
+
+.quick-start, .upcoming-assignments-container {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.quick-start h3, .upcoming-assignments-container h3 {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.quick-start p, .upcoming-assignments-container p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: -15px;
+  margin-bottom: 20px;
+}
+
+/* Quick Start Buttons */
+.quick-start .button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.quick-start button, .quick-start form button {
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quick-start .start-timer {
+  background-color: #2684ff;
+  color: #fff;
+}
+
+.quick-start .start-timer:hover {
+  background-color: #1a64c4;
+}
+
+.quick-start .find-buddy, .quick-start .add-assignment {
+  background-color: #f4f5f7;
+  color: #333;
+}
+
+.quick-start .find-buddy:hover, .quick-start .add-assignment:hover {
+  background-color: #e0e0e0;
+}
+
+/* Upcoming Assignments List */
+.assignments-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.assignment-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.assignment-item:last-child {
+  border-bottom: none;
+}
+
+.assignment-details h4 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.assignment-details .subject {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.assignment-due-date {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #2684ff;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #ff4d4f;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.delete-btn:hover {
+  color: #cf1322;
+}
+
+/* New Assignment Form Styling */
+.quick-start form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.quick-start input {
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 0.9rem;
 }
