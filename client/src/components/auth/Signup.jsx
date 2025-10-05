@@ -46,7 +46,7 @@ class Signup extends Component {
             const data = await res.json();
             if (res.ok) {
                 console.log('Signup success:', data);
-                window.location.href = '/dashboard';
+                window.location.href = `/dashboard/${data.user._id}`;
             } else {
                 alert(data.message || 'Signup failed');
             }

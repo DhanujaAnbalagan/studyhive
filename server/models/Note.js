@@ -6,7 +6,6 @@ const noteSchema = new mongoose.Schema({
     tags: [String],
     originalText: { type: String },
     summary: { type: String },
-    createdAt: { type: Date, default: Date.now }
 }, {
     timestamps: true,
     collection: 'notes_transaction'
