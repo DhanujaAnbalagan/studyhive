@@ -116,7 +116,7 @@ const Landing = () => {
   return (
     <div className="full-page-container">
       <Navbar />
-      <main className="main-content" style={{ marginLeft: "240px", padding: "30px" }}>
+      <main className="main-content" style={{ marginLeft: "50px", padding: "30px" }}>
 
         <div className="top-navbar">
           <h1>Welcome{user ? `, ${user.username}` : ""}!</h1>

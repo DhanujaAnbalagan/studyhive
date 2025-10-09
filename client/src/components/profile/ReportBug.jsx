@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Navbar from "../common/Navbar.jsx";
 import { Link } from 'react-router-dom';
 
 class ReportBug extends Component {
@@ -59,7 +60,9 @@ class ReportBug extends Component {
     const buttonStyle = { width: '100%', padding: '15px', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', border: 'none', borderRadius: '12px', color: 'white', fontSize: '16px', fontWeight: '600', cursor: 'pointer', marginTop: '15px' };
 
     return (
-      <div style={containerStyle}>
+      <div className='page-container'>
+        <Navbar />
+        <div className="main-content" style={{alignItems: 'center', justifyContent: 'center'}}>
         <div style={cardStyle}>
           <h1 style={{ textAlign: 'center', fontSize: '28px', fontWeight: '700', color: '#333', marginBottom: '20px' }}>Report an Issue or Bug</h1>
           <form onSubmit={this.handleSubmit}>
@@ -143,6 +146,7 @@ class ReportBug extends Component {
           <div style={{ textAlign: 'center', marginTop: '20px' }}>
             <Link to="/profile" style={{ color: '#667eea', textDecoration: 'none' }}>← Back to Profile</Link>
           </div>
+        </div>
         </div>
       </div>
     );

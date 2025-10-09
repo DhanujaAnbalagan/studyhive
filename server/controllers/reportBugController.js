@@ -1,7 +1,5 @@
 const ReportBug = require("../models/ReportBug");
 
-// @desc    Submit a new bug report
-// @route   POST /api/report-bug
 exports.createReport = async (req, res) => {
   try {
     const report = new ReportBug(req.body);
@@ -12,8 +10,6 @@ exports.createReport = async (req, res) => {
   }
 };
 
-// @desc    Get all bug reports (for admin dashboard)
-// @route   GET /api/report-bug
 exports.getAllReports = async (req, res) => {
   try {
     const reports = await ReportBug.find().sort({ reportedAt: -1 });
@@ -23,8 +19,6 @@ exports.getAllReports = async (req, res) => {
   }
 };
 
-// @desc    Update bug report status (mark as resolved, etc.)
-// @route   PUT /api/report-bug/:id
 exports.updateReportStatus = async (req, res) => {
   try {
     const { status } = req.body;
