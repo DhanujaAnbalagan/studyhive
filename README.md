@@ -36,7 +36,7 @@ StudyHive provides a **comprehensive and scalable digital learning environment**
 - Upload typed notes to auto-generate concise summaries using a **HuggingFace API**.
 - Organize notes and materials in a searchable repository.
 
-### ⏱ Pomodoro Timer & Analytics
+###  Pomodoro Timer & Analytics
 - Track study sessions using a built-in Pomodoro timer.
 - View session logs and productivity analytics (daily time spent).
 
