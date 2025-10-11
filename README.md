@@ -61,3 +61,7 @@ StudyHive provides a **comprehensive and scalable digital learning environment**
 | Database | MongoDB Atlas |
 | Testing | Thunderclient |
 | AI Integration | HuggingFace Model API |
+
+---
+##### Note: HuggingFace API token here is deprecated. 
+Generate your own from https://huggingface.co/ -> Settings -> Access Tokens
