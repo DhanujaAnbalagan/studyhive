@@ -63,5 +63,5 @@ StudyHive provides a **comprehensive and scalable digital learning environment**
 | AI Integration | HuggingFace Model API |
 
 ---
-##### Note: HuggingFace API token here is deprecated. 
+#### Note: HuggingFace API token here is deprecated. 
 Generate your own from https://huggingface.co/ -> Settings -> Access Tokens
