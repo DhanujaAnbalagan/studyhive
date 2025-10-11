@@ -1,5 +1,3 @@
-// controllers/notesController.js
-
 const Note = require('../models/Note');
 const multer = require('multer');
 const fs = require('fs');
@@ -7,9 +5,7 @@ const axios = require('axios');
 const pdf = require('pdf-parse');
 require('dotenv').config();
 
-// --------------------
-// File Upload Setup
-// --------------------
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     const uploadDir = 'uploads/';
@@ -35,9 +31,7 @@ const upload = multer({
   }
 });
 
-// --------------------
-// Hugging Face Config
-// --------------------
+
 const HUGGING_FACE_API_URL =
   'https://api-inference.huggingface.co/models/facebook/bart-large-cnn';
 const HUGGING_FACE_TOKEN = process.env.HUGGING_FACE_TOKEN;
@@ -48,9 +42,6 @@ if (!HUGGING_FACE_TOKEN) {
   );
 }
 
-// --------------------
-// Helper: Summarize with BART
-// --------------------
 const summarizeWithBART = async (text) => {
   try {
     const maxLength = 1024;
@@ -79,7 +70,6 @@ const summarizeWithBART = async (text) => {
         }
       );
 
-      // Handle multiple possible API formats
       if (Array.isArray(response.data) && response.data[0]?.summary_text) {
         summaries.push(response.data[0].summary_text);
       } else if (response.data?.summary_text) {
@@ -100,9 +90,7 @@ const summarizeWithBART = async (text) => {
   }
 };
 
-// --------------------
-// Helper: Extract text from PDF
-// --------------------
+
 const extractTextFromPDF = async (filePath) => {
   try {
     const dataBuffer = fs.readFileSync(filePath);
@@ -114,9 +102,6 @@ const extractTextFromPDF = async (filePath) => {
   }
 };
 
-// --------------------
-// Controller Methods
-// --------------------
 const getNotes = async (req, res) => {
   try {
     const notes = await Note.find({ user: req.user.userId }).sort({
@@ -233,9 +218,6 @@ const deleteNote = async (req, res) => {
   }
 };
 
-// --------------------
-// Exports
-// --------------------
 module.exports = {
   getNotes,
   createNote,
